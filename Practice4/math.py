@@ -32,3 +32,32 @@ print("Shuffled fruits:", fruits)
 
 # 6️⃣ Random sample
 print("Random sample:", random.sample(fruits, 2))
+#EXAMPLES FROM THE TASK4
+#Write a Python program to convert degree to radian.
+import math
+x = int(input())
+y=math.radians(x)
+print(y)
+#Write a Python program to calculate the area of a trapezoid.
+height = int(input())
+base1 = int(input())
+base2 = int(input())
+
+area = (base1 + base2) / 2 * height
+
+print("Area of trapezoid:", area)
+# Regular Polygon Area
+n = int(input())
+s = int(input())
+
+area = (n * s ** 2) / (4 * math.tan(math.pi / n))
+
+print("The area of the polygon is:", int(area))
+# Parallelogram Area
+
+base = int(input())
+height = int(input())
+
+area = base * height
+
+print("Area of parallelogram:", float(area))

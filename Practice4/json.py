@@ -1,33 +1,21 @@
 import json
 
-# 1️⃣ Python dictionary
-data = {
-    "name": "Alice",
-    "age": 21,
-    "is_student": True,
-    "courses": ["Math", "Physics", "Programming"]
-}
+# Open JSON file
+with open("sample-data.json", "r") as file:
+    data = json.load(file)
 
-# 2️⃣ Convert Python to JSON string
-json_string = json.dumps(data, indent=4)
-print("JSON string:")
-print(json_string)
+print("Interface Status")
+print("=" * 80)
+print(f"{'DN':50} {'Description':20} {'Speed':8} {'MTU':6}")
+print("-" * 80)
 
-# 3️⃣ Convert JSON string back to Python
-parsed_data = json.loads(json_string)
-print("Parsed name:", parsed_data["name"])
-
-# 4️⃣ Write JSON to file
-with open("sample-data.json", "w") as f:
-    json.dump(data, f, indent=4)
-
-# 5️⃣ Read JSON from file
-with open("sample-data.json", "r") as f:
-    loaded_data = json.load(f)
-    print("Loaded data:", loaded_data)
-
-# 6️⃣ Working with JSON array
-json_array = '[{"id":1,"item":"apple"},{"id":2,"item":"banana"}]'
-items = json.loads(json_array)
-for item in items:
-    print("Item:", item["item"])
+# Parse JSON
+for item in data["imdata"]:
+    attributes = item["l1PhysIf"]["attributes"]
+    
+    dn = attributes.get("dn", "")
+    descr = attributes.get("descr", "")
+    speed = attributes.get("speed", "")
+    mtu = attributes.get("mtu", "")
+    
+    print(f"{dn:50} {descr:20} {speed:8} {mtu:6}")

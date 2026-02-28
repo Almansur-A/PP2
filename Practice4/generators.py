@@ -54,3 +54,42 @@ for f in fibonacci(50):
 squares = (x * x for x in range(6))
 for s in squares:
     print(s)
+#EXAMPLES FROM THE TASK4
+# Squares up to N
+def squares_up_to(n):
+    for i in range(n + 1):
+        yield i * i
+for value in squares_up_to(5):
+    print(value)
+
+# Even numbers generator
+def even_numbers(n):
+    for i in range(n + 1):
+        if i % 2 == 0:
+            yield i
+n = int(input())
+print(",".join(str(num) for num in even_numbers(n)))
+
+# Divisible by 3 and 4
+def divisible_by_3_and_4(n):
+    for i in range(n + 1):
+        if i % 3 == 0 and i % 4 == 0:
+            yield i
+n = int(input())
+for num in divisible_by_3_and_4(n):
+    print(num)
+
+# Squares from a to b
+def squares(a, b):
+    for i in range(a, b + 1):
+        yield i * i
+for value in squares(3, 7):
+    print(value)
+
+# Countdown generator
+def countdown(n):
+    while n >= 0:
+        yield n
+        n -= 1
+for num in countdown(5):
+    print(num)
